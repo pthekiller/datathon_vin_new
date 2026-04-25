@@ -1,0 +1,5 @@
+payments được dùng để enrich fact_sales_item/fact_orders; không tách thành fact riêng để giữ tổng số bảng = 24.
+web_traffic được giữ độc lập; không build relationship sang orders để tránh attribution giả.
+sales được giữ độc lập; dùng cho forecast và feature engineering, không ép mặc định bằng transaction aggregate.
+sales_reconciliation được build như bảng validation riêng để đối chiếu sales.csv với transaction theo ngày.
+Không build mart web riêng để giữ đúng khung 24 bảng; Power BI có thể trực quan trực tiếp từ fact_web_traffic.
