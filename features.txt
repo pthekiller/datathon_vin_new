@@ -1,0 +1,25 @@
+day_of_week,ngày(thứ) trong tuần
+day_of_month,ngày trong tháng
+month, tháng
+quarter, quý
+is weekend, có phải là cuối tuần ko (thứ 6 thứ 7 chủ nhật)
+sincos365, lượng giác hóa ngày trong năm
+active_promo_count, đếm số promo đang hoạt động
+max_discount_depth, phần trăm giảm tối đa (còn tùy thuộc vào ngày có thể áp nhiều mã giảm giá)
+is_stackable_day, có phải ngày có thể áp nhiều mã
+Từ đây các đặc trưng sẽ được tính theo giá trị kì vọng công thức bằng mean của ngày hôm đó trong năm của mọi năm
+session, thời lượng xem trang chủ trung bình mỗi khách hàng
+unique_visitors, số lượng khách truy cập
+bounce_rate, tỉ lệ thoát sau khi xem trang duy nhất
+các nhóm tuổi, đếm theo ngày qau order
+cancel_rate, tỉ lệ hủy đơn
+aov, doanh thu chia số đơn hàng
+item_sold, lượng hàng bán được trong ngày
+unique_order, lượng đơn trong ngày
+fill_rate, tỉ lệ đáp ứng nhu cầu của khách hàng (hay hoàn thành đơn hàng)
+stockout_rate, tỉ lệ hết hàng
+overstock_rate, tỉ lệ tồn kho
+sell_through, số lượng bán/số lượng nhập
+
+
+
