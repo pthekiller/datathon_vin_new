@@ -169,7 +169,11 @@ DATATHON_VIN_NEW/
 ├── features.txt
 ├── README.md
 └── submission.csv
+```"
 
+---
+
+Phần này nên đặt **trước EDA** trong Methodology là hợp lý nhất, vì nó giải thích vì sao dashboard và mô hình của bạn không lấy dữ liệu thô trực tiếp mà đi qua lớp **Clean Data → Fact/Dimension → Data Mart → Power BI/Forecasting**.
 ---
 
 ## ⚙️ Quy trình chạy dự án
