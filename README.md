@@ -143,6 +143,9 @@ Mô hình được đánh giá bằng **Time Series Cross-Validation** nhằm đ
 
 `data/` là nơi lưu dữ liệu gốc của cuộc thi. `output/` là nơi lưu dữ liệu sau xử lý, bao gồm dữ liệu sạch, datamart và dữ liệu processed phục vụ phân tích. Phần 1 chứa notebook xử lý yêu cầu ban đầu, Phần 2 chứa pipeline xử lý dữ liệu và dashboard Power BI, còn Phần 3 chứa notebook dự báo.
 
+## 📂 Cấu trúc thư mục
+
+```text
 DATATHON_VIN_NEW/
 ├── data/
 ├── output/
@@ -169,7 +172,6 @@ DATATHON_VIN_NEW/
 ├── features.txt
 ├── README.md
 └── submission.csv
-```"
 
 ---
 
