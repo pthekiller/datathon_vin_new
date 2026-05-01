@@ -36,8 +36,40 @@ Bộ dữ liệu được cung cấp mô phỏng hoạt động thực tế củ
 Giải pháp của nhóm tập trung vào các bước cốt lõi sau:
 
 ### 1. Trực quan hóa & Phân tích Dữ liệu (EDA)
-- Phân tích giỏ hàng (Market Basket Analysis) sử dụng thuật toán **Apriori** để tìm ra tập sản phẩm phổ biến và luật kết hợp (Association Rules).
-- Trích xuất đặc trưng về hành vi khách hàng theo độ tuổi và thời gian.
+### 1. Trực quan hóa & Phân tích Dữ liệu (EDA)
+
+Ở giai đoạn EDA, nhóm xây dựng hệ thống dashboard trong Power BI nhằm mô tả tình hình kinh doanh, phát hiện các điểm bất thường và hỗ trợ định hướng cho bài toán dự báo doanh thu và giá vốn hàng bán. Thay vì chỉ dừng lại ở thống kê mô tả, phần trực quan hóa được thiết kế theo luồng phân tích từ **Descriptive → Diagnostic → Predictive Support**.
+
+#### Dashboard 1: Business Overview – Tổng quan hoạt động kinh doanh
+
+Dashboard đầu tiên tập trung mô tả bức tranh tổng thể của doanh nghiệp qua các chỉ số chính như **Revenue, Profit, Orders, Customers, COGS, Return Amount** theo thời gian. Mục tiêu của dashboard này là xác định xu hướng tăng trưởng, chu kỳ mùa vụ và các giai đoạn biến động mạnh trong hoạt động kinh doanh.
+
+Thông qua dashboard tổng quan, nhóm nhận thấy doanh nghiệp có giai đoạn tăng trưởng rõ rệt trong các năm đầu, thể hiện qua sự gia tăng đồng thời của doanh thu, số lượng đơn hàng và lượng khách hàng. Tuy nhiên, lợi nhuận không luôn tăng tương ứng với doanh thu, cho thấy chi phí, hoàn trả, khuyến mãi hoặc vận chuyển có thể ảnh hưởng đáng kể đến hiệu quả kinh doanh thực tế. Đây là cơ sở để chuyển sang phân tích nguyên nhân ở các dashboard tiếp theo.
+
+#### Dashboard 2: Profit Diagnostic – Phân tích nguyên nhân biến động lợi nhuận
+
+Dashboard thứ hai được xây dựng nhằm phân rã các yếu tố tác động đến lợi nhuận. Các nhóm yếu tố chính được quan sát bao gồm **COGS, Discount, Shipping Cost, Return Amount, Promotion, Product Category và Region**.
+
+Phân tích diagnostic cho thấy một số giai đoạn doanh thu vẫn duy trì ở mức cao nhưng lợi nhuận suy giảm, hàm ý rằng tăng trưởng doanh thu chưa chắc tạo ra tăng trưởng lợi nhuận bền vững. Các yếu tố như giá vốn hàng bán cao, chi phí vận chuyển lớn, tỷ lệ hoàn trả tăng hoặc mức giảm giá sâu có thể làm biên lợi nhuận bị thu hẹp. Việc phân rã này giúp nhóm nhận diện rõ hơn các nguyên nhân tiềm năng phía sau biến động lợi nhuận, thay vì chỉ quan sát doanh thu ở cấp tổng quan.
+
+#### Dashboard 3: Customer, Product & Region Insight – Phân tích đối tượng và khu vực
+
+Dashboard thứ ba tập trung vào việc xác định nhóm khách hàng, dòng sản phẩm và khu vực đóng góp nhiều nhất vào doanh thu, lợi nhuận cũng như rủi ro hoàn trả. Các biểu đồ được sử dụng để so sánh hiệu quả kinh doanh theo **nhóm tuổi khách hàng, danh mục sản phẩm, khu vực địa lý, rating, số lượng đơn hàng và tỷ lệ hoàn trả**.
+
+Từ góc nhìn khách hàng và sản phẩm, nhóm có thể đánh giá nhóm đối tượng nào mang lại doanh thu cao nhưng lợi nhuận thấp, dòng sản phẩm nào có rating tốt nhưng tỷ lệ hoàn trả cao, hoặc khu vực nào phát sinh chi phí vận chuyển lớn. Những insight này hỗ trợ doanh nghiệp không chỉ hiểu “đang bán được bao nhiêu”, mà còn hiểu “bán cho ai, bán ở đâu, bán dòng hàng nào và hiệu quả thực sự ra sao”.
+
+#### Vai trò của EDA đối với mô hình dự báo
+
+Kết quả trực quan hóa không chỉ phục vụ phần mô tả dữ liệu mà còn được sử dụng trực tiếp để định hướng Feature Engineering. Các insight từ dashboard giúp nhóm xác định những nhóm biến quan trọng cần đưa vào mô hình, bao gồm:
+
+- Biến thời gian và mùa vụ để nắm bắt chu kỳ kinh doanh.
+- Biến khuyến mãi để phản ánh tác động của discount và campaign.
+- Biến traffic để đo lường nhu cầu và hành vi truy cập website.
+- Biến tồn kho để đánh giá khả năng đáp ứng đơn hàng và rủi ro stockout.
+- Biến hoàn trả và chi phí để giải thích sự khác biệt giữa doanh thu và lợi nhuận.
+- Biến theo khách hàng, sản phẩm và khu vực để phản ánh khác biệt về hành vi mua sắm.
+
+Nhờ đó, phần EDA đóng vai trò cầu nối giữa phân tích kinh doanh và mô hình học máy, giúp mô hình dự báo không chỉ dựa trên xu hướng doanh thu quá khứ mà còn tận dụng các tín hiệu vận hành thực tế của doanh nghiệp.
 
 ### 2. Trích xuất đặc trưng (Feature Engineering)
 - **Time-series Features:** Biến đổi chu kỳ thời gian (Seasonality) sử dụng sóng `Sin/Cos`. Bổ sung các cờ ngày lễ, cuối tuần.
